@@ -1,14 +1,23 @@
+
 import requests
 import json
-import os
+import os, sys
 from datetime import datetime
 from dotenv import load_dotenv
 
 load_dotenv()
 
-city_name = 'São Paulo'
+"""city_name = 'São Paulo'
 state_code = 'São Paulo'
-country_code = 'BR'
+country_code = 'BR'"""
+
+if len(sys.argv) > 3:
+    city_name = sys.argv[1]
+    state_code = sys.argv[2]
+    country_code = sys.argv[3]
+else:
+    print("Uso: python OpenWeather.py <cidade> <estado> <país>")
+    sys.exit(1)
 
 API_key = os.getenv('OPENWEATHER_API_KEY')
 
